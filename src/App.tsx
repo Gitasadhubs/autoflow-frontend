@@ -21,7 +21,7 @@ function App() {
     refetchOnReconnect: false,
   });
 
-  const user: User | null = userResponse?.data || null;
+  const user: User | null = userResponse || null;
 
   const handleLogout = async () => {
     try {
