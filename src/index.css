@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GitHub-themed custom styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-github-bg text-github-text;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  /* Custom scrollbar for GitHub theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-github-bg;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-github-border rounded;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-github-text-secondary;
+  }
+}
+
+@layer components {
+  /* GitHub-styled button components */
+  .btn-primary {
+    @apply bg-github-primary hover:bg-github-primary-hover text-white px-4 py-2 rounded-md font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-github-primary focus:ring-offset-2 focus:ring-offset-github-bg;
+  }
+  
+  .btn-secondary {
+    @apply bg-github-bg-secondary hover:bg-github-bg-tertiary text-github-text border border-github-border px-4 py-2 rounded-md font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-github-blue focus:ring-offset-2 focus:ring-offset-github-bg;
+  }
+  
+  .btn-danger {
+    @apply bg-github-danger hover:bg-github-danger-hover text-white px-4 py-2 rounded-md font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-github-danger focus:ring-offset-2 focus:ring-offset-github-bg;
+  }
+  
+  /* Card component */
+  .card {
+    @apply bg-github-bg-secondary border border-github-border rounded-lg p-6 shadow-sm;
+  }
+  
+  /* Input styles */
+  .input {
+    @apply bg-github-bg border border-github-border text-github-text px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-github-blue focus:border-transparent;
+  }
+  
+  /* Status badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border;
+  }
+  
+  .badge-success {
+    @apply bg-green-100 text-green-800 border-green-200;
+  }
+  
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800 border-yellow-200;
+  }
+  
+  .badge-error {
+    @apply bg-red-100 text-red-800 border-red-200;
+  }
+  
+  .badge-info {
+    @apply bg-blue-100 text-blue-800 border-blue-200;
+  }
+}
+
+/* GitHub syntax highlighting for code blocks */
+.hljs {
+  @apply bg-github-bg-tertiary text-github-text p-4 rounded-md overflow-x-auto;
+}
+
+/* Loading animations */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
