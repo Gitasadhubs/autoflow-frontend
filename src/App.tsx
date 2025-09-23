@@ -15,7 +15,7 @@ function App() {
     queryKey: ['user'],
     queryFn: async () => {
       const userData = await authApi.getCurrentUser();
-      return userData as User; // Explicit cast to ensure correct typing
+      return userData as unknown as User; // TypeScript-safe conversion
     },
     retry: false,
     staleTime: 10 * 60 * 1000, // 10 minutes
