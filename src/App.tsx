@@ -10,10 +10,13 @@ import { authApi } from '@/lib/api';
 import type { User } from '@/types/api';
 
 function App() {
-  // Fetch current user
+  // Fetch current user (backend returns raw User object)
   const { data: userResponse, isLoading } = useQuery<User>({
     queryKey: ['user'],
-    queryFn: authApi.getCurrentUser,
+    queryFn: async () => {
+      const userData = await authApi.getCurrentUser();
+      return userData as User; // Explicit cast to ensure correct typing
+    },
     retry: false,
     staleTime: 10 * 60 * 1000, // 10 minutes
     refetchOnWindowFocus: false,
