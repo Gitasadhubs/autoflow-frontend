@@ -35,11 +35,10 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
-    console.error('❌ API Response Error:', error);
-    if (error.response?.status === 401) {
-      // Handle authentication errors
-      window.location.href = '/login';
+    if (import.meta.env.DEV) {
+      console.error('❌ API Response Error:', error.response?.status, error.response?.data);
     }
+    // Don't auto-redirect on 401 - let React Query handle it
     return Promise.reject(error);
   }
 );
