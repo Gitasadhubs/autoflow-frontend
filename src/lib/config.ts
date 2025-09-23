@@ -1,8 +1,8 @@
 // Environment configuration
 export const config = {
-  // API URLs - will be set via environment variables
-  API_URL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
-  GITHUB_AUTH_URL: import.meta.env.VITE_GITHUB_AUTH_URL || 'http://localhost:5000/api/auth/github',
+  // API URLs - using relative URLs for Vercel proxy (first-party calls)
+  API_URL: import.meta.env.VITE_API_URL || '',
+  GITHUB_AUTH_URL: import.meta.env.VITE_GITHUB_AUTH_URL || '/api/auth/github',
   
   // App settings
   APP_NAME: 'AutoFlow',
