@@ -48,7 +48,7 @@ api.interceptors.response.use(
 export const authApi = {
   // Get current user
   getCurrentUser: (): Promise<ApiResponse<User>> =>
-    api.get('/api/auth/me').then(res => res.data),
+    api.get('/api/auth/user').then(res => res.data),
   
   // Logout user
   logout: (): Promise<ApiResponse<null>> =>
