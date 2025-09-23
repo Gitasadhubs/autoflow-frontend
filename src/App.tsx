@@ -11,7 +11,7 @@ import type { User } from '@/types/api';
 
 function App() {
   // Fetch current user
-  const { data: userResponse, isLoading } = useQuery({
+  const { data: userResponse, isLoading } = useQuery<User>({
     queryKey: ['user'],
     queryFn: authApi.getCurrentUser,
     retry: false,
