@@ -16,6 +16,9 @@ function App() {
     queryFn: authApi.getCurrentUser,
     retry: false,
     staleTime: 10 * 60 * 1000, // 10 minutes
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
   });
 
   const user: User | null = userResponse?.data || null;
